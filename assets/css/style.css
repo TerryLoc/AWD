@@ -45,31 +45,24 @@ h1 {
   margin: 30px auto;
 }
 
-@keyframes roll {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .header-text {
   display: flex;
   flex-direction: column;
 }
 
 h2 {
-  font-size: 160%;
+  text-transform: uppercase;
+  font-size: 130%;
   color: var(--text-dark);
   font-weight: 400;
-  text-shadow: 0 1px 1px var(--text-light);
   padding: 30px 0;
   background-color: rgba(3, 118, 187, 0.1);
-  border-top: 3px solid var(--text-dark);
-  border-bottom: 3px solid var(--text-dark);
+  border-top: 2px solid var(--text-dark);
+  border-bottom: 2px solid var(--text-dark);
+  box-shadow: 0 2px 5px var(--text-dark);
 }
 
+/* buttons styling */
 .buttons {
   margin: 10px;
   display: flex;
@@ -89,6 +82,11 @@ h2 {
   box-shadow: 1px 2px 5px var(--text-dark), -1px -2px 5px var(--text-dark);
 }
 
+button a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .buttons button:hover {
   font-weight: 700;
   cursor: pointer;
@@ -97,6 +95,7 @@ h2 {
   border: 2px solid var(--main-color);
 }
 
+/* Footer */
 footer {
   background: var(--secondary-color);
 }
