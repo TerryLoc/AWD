@@ -1,0 +1,22 @@
+:root {
+  --main-color: #49576c;
+  --secondary-color: #0376bb;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-color);
+  color: var(--text-light);
+}
+
+header,
+footer {
+  background: var(--secondary-color);
+}
