@@ -16,32 +16,72 @@
       </div>
       <div class="buttons">
         <button><a href="#main-section">read more</a></button>
-        <button>contact us</button>
+        <button><a href="#contact">Contact us</a></button>
       </div>
     </header>
 
     <main id="main-section">
       <h2 class="section-title">Projects</h2>
       <section class="projects">
-        <div class="project">
-          <h3>Project 1</h3>
-          <p>Description of project 1.</p>
-        </div>
-        <div class="project">
-          <h3>Project 2</h3>
-          <p>Description of project 2.</p>
-        </div>
-        <div class="project">
-          <h3>Project 3</h3>
-          <p>Description of project 3.</p>
-        </div>
-        <div class="project">
-          <h3>Project 4</h3>
-          <p>Description of project 4.</p>
-        </div>
-      </section>
+
+<section class="projects">
+    <div class="project">
+        <h3>Fairyland Cottage</h3>
+        <p>Description of Project 1</p>
+        <a href="https://terryloc.github.io/Fairyland-Cottage/" target="_blank">Visit Website</a>
+        <img src="assets/images/fairyland.webp"" alt="Project 1 Image">
+    </div>
+    <div class="project">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+        <a href="https://example.com" target="_blank">Visit Website</a>
+        <img src="path/to/image.jpg" alt="Project 2 Image">
+    </div>
+    <!-- Add more projects here -->
+</section>
+
+
     </main>
 
+    <section id="contact">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+
+        <div class="newsletter">
+          <h3>Sign Up for Our Newsletter</h3>
+          <form>
+            <div class="form-group">
+              <label for="newsletter-email">Email:</label>
+              <input
+                type="email"
+                id="newsletter-email"
+                name="newsletter-email"
+                required />
+            </div>
+
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
     <footer>
       <nav class="page_links">
         <ul class="footer-links">
