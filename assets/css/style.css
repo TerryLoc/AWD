@@ -121,9 +121,9 @@ main::before {
 }
 
 .projects {
-  margin: 50px 0 0 0;
+  margin: 50px 10px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
   gap: 2rem;
   text-align: center;
 }
@@ -141,6 +141,15 @@ main::before {
   box-shadow: 0 2px 5px var(--text-dark);
 }
 
+.project {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--main-color);
+  padding-bottom: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
 .project h3 {
   margin: 10px 0;
   text-transform: uppercase;
@@ -148,6 +157,9 @@ main::before {
 
 .project p {
   margin-bottom: 20px;
+  max-width: 300px;
+  text-align: center;
+  margin: 5px auto;
 }
 
 .project a {
@@ -219,6 +231,8 @@ main::before {
 /* Buttons */
 #contact button,
 .newsletter button {
+  max-width: 200px;
+  align-self: center;
   text-transform: uppercase;
   font-size: 0.8rem;
   margin: 25px;
