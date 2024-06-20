@@ -1,18 +1,23 @@
 
 # Terry Loughran Portfolio
 
-![Portfolio Screenshot](assets/images/portfolio-screenshot.png)
+![Portfolio Screenshot](assets/images/screenshot-main.png)
 
 Welcome to Terry Loughran's portfolio website! This repository contains the source code for Terry's portfolio showcasing his projects and contact information.
 
 ## Table of Contents
 
-- [About](#about)
-- [Projects](#projects)
-- [Contact](#contact)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Terry Loughran Portfolio](#terry-loughran-portfolio)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Projects](#projects)
+    - [1. Fairyland Cottage](#1-fairyland-cottage)
+    - [2. Beyond The Mood](#2-beyond-the-mood)
+    - [3. Classic Star Wars Quiz](#3-classic-star-wars-quiz)
+  - [Contact](#contact)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## About
 
