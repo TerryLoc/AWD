@@ -1,5 +1,7 @@
+/* Importing Google font K2D with various weights and styles */
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+/* Root CSS variables for color scheme and shadows */
 :root {
     --main-color: #49576c;
     --secondary-color: #0376bb;
@@ -9,6 +11,7 @@
     --text-shadow: 0 2px 3px var(--text-dark);
 }
 
+/* Global styles for all elements */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +20,7 @@
     letter-spacing: 1px;
 }
 
+/* Body styles */
 body {
     background: #f0f2f5;
     color: #333;
@@ -24,17 +28,20 @@ body {
     text-align: center;
 }
 
+/* Initial styles for sections, hidden and translated */
 .section {
     opacity: 0;
     transform: translateY(100px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Styles for visible sections */
 .section.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Header styles with gradient background and shadow */
 header {
     background: linear-gradient(90deg,
             #90e0ef,
@@ -47,6 +54,7 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation list styles */
 nav ul {
     list-style: none;
     display: flex;
@@ -54,15 +62,18 @@ nav ul {
     flex-wrap: wrap;
 }
 
+/* Navigation list item styles */
 nav ul li {
     margin: 1rem;
 }
 
+/* Navigation list item hover effect */
 nav ul li:hover {
     transform: translateY(-5px);
     transition: transform 0.3s ease;
 }
 
+/* Navigation link styles */
 nav ul li a {
     text-transform: uppercase;
     color: #fff;
@@ -71,10 +82,12 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+/* Navigation link hover effect */
 nav ul li a:hover {
     color: var(--main-color);
 }
 
+/* Menu toggle styles for mobile */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -84,6 +97,7 @@ nav ul li a:hover {
     right: 1rem;
 }
 
+/* Menu toggle open state styles */
 .menu-toggle.open .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -96,6 +110,7 @@ nav ul li a:hover {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/* Menu bar styles */
 .bar {
     height: 3px;
     width: 25px;
@@ -104,12 +119,14 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
+/* Navigation list styles */
 .nav-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
+/* Home section styles */
 #home {
     background: url('/assets/images/bg-image.jpg') no-repeat center center/cover;
     color: #fff;
@@ -121,6 +138,7 @@ nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* Intro section styles */
 .intro {
     backdrop-filter: blur(10px) saturate(163%);
     -webkit-backdrop-filter: blur(10px) saturate(103%);
@@ -130,6 +148,7 @@ nav ul li a:hover {
     border: 1px solid var(--secondary-color);
 }
 
+/* Home section heading styles */
 #home .intro h1 {
     font-size: 3rem;
     margin-top: 1rem;
@@ -138,6 +157,7 @@ nav ul li a:hover {
     font-family: 'Pacifico', cursive;
 }
 
+/* Home section paragraph styles */
 #home .intro p {
     padding-top: 20px;
     color: var(--text-light);
@@ -146,6 +166,7 @@ nav ul li a:hover {
     animation: fadeInUp 1s ease-in-out;
 }
 
+/* About, Projects, Contact section styles */
 #about,
 #projects,
 #contact {
@@ -158,6 +179,7 @@ nav ul li a:hover {
     width: 90%;
 }
 
+/* Heading 2 styles */
 h2 {
     margin-bottom: 1rem;
     font-size: 2.5rem;
@@ -168,6 +190,7 @@ h2 {
     letter-spacing: 2px;
 }
 
+/* Heading 2 after styles */
 h2::after {
     content: '';
     width: 80px;
@@ -180,6 +203,7 @@ h2::after {
     border-radius: 2px;
 }
 
+/* About section paragraph styles */
 #about p {
     text-align: center;
     width: 90%;
@@ -187,6 +211,7 @@ h2::after {
     margin-bottom: 1rem;
 }
 
+/* Project section styles */
 #projects .project {
     background: linear-gradient(135deg, #0077b6, #00b4d8, #90e0ef);
     margin: 3rem 0;
@@ -197,11 +222,13 @@ h2::after {
     color: #fff;
 }
 
+/* Project section hover effect */
 #projects .project:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Project section heading styles */
 #projects .project h3 {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -209,11 +236,13 @@ h2::after {
     color: #fff;
 }
 
+/* Project section paragraph styles */
 #projects .project p {
     width: 90%;
     margin: 5px auto;
 }
 
+/* Project section image styles */
 #projects .project img {
     margin-top: 20px;
     width: 70%;
@@ -221,7 +250,7 @@ h2::after {
     box-shadow: var(--shadow-button);
 }
 
-
+/* Contact form styles */
 #contact form {
     max-width: 600px;
     margin: 0 auto;
@@ -230,16 +259,19 @@ h2::after {
     flex-direction: column;
 }
 
+/* Contact form button styles */
 #contact-form button {
     width: 50%;
     margin: 10px auto;
 }
 
+/* Contact form label styles */
 #contact form label {
     display: block;
     margin: 0.5rem 0 0.2rem;
 }
 
+/* Contact form input and textarea styles */
 #contact form input,
 #contact form textarea {
     width: 100%;
@@ -250,6 +282,7 @@ h2::after {
     font-size: 1rem;
 }
 
+/* Contact form button, return button, github button styles */
 #contact form button,
 #return button,
 #github button {
@@ -264,6 +297,7 @@ h2::after {
     transition: background 0.3s ease;
 }
 
+/* Contact form button, return button, github button hover effect */
 #contact form button:hover,
 #return button:hover,
 #github button:hover {
@@ -271,7 +305,7 @@ h2::after {
     font-size: 1.15rem;
 }
 
-/* modal */
+/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -285,6 +319,7 @@ h2::after {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Modal content styles */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -293,6 +328,7 @@ h2::after {
     width: 80%;
 }
 
+/* Modal close button styles */
 .close {
     color: #aaaaaa;
     float: right;
@@ -300,6 +336,7 @@ h2::after {
     font-weight: bold;
 }
 
+/* Modal close button hover and focus effect */
 .close:hover,
 .close:focus {
     color: #000;
@@ -378,5 +415,18 @@ footer p {
 
     #contact form {
         width: 100%;
+    }
+
+    /* Additional rules */
+    footer {
+        padding: 1rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: 1rem;
     }
 }
