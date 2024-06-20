@@ -134,9 +134,10 @@ nav ul li a:hover {
 }
 
 #home .intro p {
+    padding-top: 20px;
     color: var(--text-light);
     font-size: 1.8rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
     animation: fadeInUp 1s ease-in-out;
 }
 
@@ -178,13 +179,12 @@ h2::after {
     text-align: center;
     width: 90%;
     margin: 0 auto;
-
     margin-bottom: 1rem;
 }
 
 #projects .project {
     background: linear-gradient(135deg, #0077b6, #00b4d8, #90e0ef);
-    margin: 1rem 0;
+    margin: 3rem 0;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -198,10 +198,24 @@ h2::after {
 }
 
 #projects .project h3 {
+    text-transform: uppercase;
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     color: #fff;
 }
+
+#projects .project p {
+    width: 90%;
+    margin: 5px auto;
+}
+
+#projects .project img {
+    margin-top: 20px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: var(--shadow-button);
+}
+
 
 #contact form {
     max-width: 600px;
@@ -232,7 +246,8 @@ h2::after {
 }
 
 #contact form button,
-#return button {
+#return button,
+#github button {
     text-transform: uppercase;
     background: #0077b6;
     color: #fff;
@@ -245,7 +260,8 @@ h2::after {
 }
 
 #contact form button:hover,
-#return button:hover {
+#return button:hover,
+#github button:hover {
     background: #005f8d;
     font-size: 1.15rem;
 }
