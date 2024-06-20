@@ -51,7 +51,6 @@ header {
             #f0b070);
     padding: 1rem 0;
     top: 0;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     border-bottom: 1px solid var(--secondary-color);
 }
 
@@ -148,9 +147,9 @@ nav ul li a:hover {
 
 /* Intro section styles */
 .intro {
-    backdrop-filter: blur(10px) saturate(163%);
-    -webkit-backdrop-filter: blur(10px) saturate(103%);
-    background-color: rgba(108, 128, 164, 0.3);
+    backdrop-filter: blur(5px) saturate(160%);
+    -webkit-backdrop-filter: blur(50px) saturate(100%);
+    background-color: rgba(108, 128, 164, 0.4);
     border-radius: 10px;
     width: 70%;
     border: 1px solid var(--secondary-color);
@@ -225,9 +224,9 @@ h2::after {
     margin: 3rem 0;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #fff;
+    color: var(--text-light);
 }
 
 /* Project section hover effect */
@@ -241,13 +240,15 @@ h2::after {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--text-light);
+    text-shadow: 0 0px 10px var(--text-dark);
 }
 
 /* Project section paragraph styles */
 #projects .project p {
     width: 90%;
     margin: 5px auto;
+    font-size: 1.2rem;
 }
 
 /* Project section image styles */
@@ -375,7 +376,8 @@ footer p {
     font-size: 1rem;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
     header {
         /* padding: 1.8rem 0; */
         height: auto;
@@ -428,7 +430,12 @@ footer p {
     }
 
     #projects .project h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    /* Project section paragraph styles */
+    #projects .project p {
+        font-size: 1rem;
     }
 
     #contact form {
