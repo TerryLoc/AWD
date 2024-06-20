@@ -84,7 +84,9 @@ nav ul li a {
 
 /* Navigation link hover effect */
 nav ul li a:hover {
+    font-weight: bold;
     color: var(--main-color);
+    text-shadow: var(--text-shadow);
 }
 
 /* Menu toggle styles for mobile */
