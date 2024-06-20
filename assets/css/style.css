@@ -426,7 +426,8 @@ footer p {
         font-size: 0.8rem;
     }
 
-    .section {
+    .section,
+    .middle {
         padding: 1rem;
     }
 }
