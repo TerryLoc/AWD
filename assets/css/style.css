@@ -44,11 +44,11 @@ body {
 /* Header styles with gradient background and shadow */
 header {
     background: linear-gradient(90deg,
-            #90e0ef,
-            #00b4d8,
-            #0077b6,
-            #9e652b,
-            #f0b070);
+            #0077b9,
+            #00b4f8,
+            #b0d2d8,
+            #00b4f9,
+            #0077b9);
     padding: 1rem 0;
     top: 0;
     border-bottom: 1px solid var(--secondary-color);
@@ -56,6 +56,7 @@ header {
 
 header h1 {
     display: none;
+
 }
 
 /* Navigation list styles */
@@ -83,7 +84,7 @@ nav ul li:hover {
 /* Navigation link styles */
 nav ul li a {
     text-transform: uppercase;
-    color: #fff;
+    color: var(--main-color);
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
@@ -121,7 +122,7 @@ nav ul li a:hover {
 .bar {
     height: 3px;
     width: 25px;
-    background-color: #fff;
+    background-color: var(--main-color);
     margin: 4px 0;
     transition: all 0.3s ease;
 }
@@ -161,7 +162,6 @@ nav ul li a:hover {
     margin-top: 1rem;
     margin-bottom: 1rem;
     animation: fadeInDown 1s ease-in-out;
-    font-family: 'Pacifico', cursive;
 }
 
 /* Home section paragraph styles */
@@ -384,13 +384,14 @@ footer p {
     }
 
     header h1 {
-        font-weight: 400;
+        text-transform: uppercase;
+        font-weight: 500;
         display: block;
         margin: 0 auto;
         padding: 0;
-        color: var(--text-light);
+        color: var(--text-shadow);
         font-size: 1.5rem;
-        text-shadow: 0 0px 10px var(--text-dark);
+
     }
 
     .menu-toggle {
@@ -402,7 +403,6 @@ footer p {
         align-items: center;
         display: none;
         width: 100%;
-        /* background-color: rgba(108, 128, 164, 0.2); */
     }
 
     .nav-list.active {
@@ -413,20 +413,26 @@ footer p {
         margin: 1rem 0;
     }
 
+    #home {
+        background: url('/assets/images/mobile-bg.webp') no-repeat center center/cover;
+    }
+
     #home .intro {
         width: 90%;
     }
+
+
 
     h2 {
         font-size: 2rem;
     }
 
     #home .intro h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
 
     #home .intro p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     #projects .project h3 {
