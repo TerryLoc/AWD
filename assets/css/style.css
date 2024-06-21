@@ -384,13 +384,14 @@ footer p {
     }
 
     header h1 {
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         font-weight: 500;
         display: block;
         margin: 0 auto;
         padding: 0;
-        color: var(--text-shadow);
+        color: var(--main-color);
         font-size: 1.5rem;
+        text-shadow: var(--text-shadow);
 
     }
 
