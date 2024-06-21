@@ -389,7 +389,7 @@ footer p {
         display: block;
         margin: 0 auto;
         padding: 0;
-        color: var(--main-color);
+        color: var(--text-light);
         font-size: 1.5rem;
         text-shadow: var(--text-shadow);
 
