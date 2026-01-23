@@ -1,14 +1,38 @@
+/**
+ * All Web Dev - Terry Loughran Portfolio
+ * Main JavaScript File
+ *
+ * Handles:
+ * - Contact form submission via EmailJS
+ * - Modal functionality
+ * - Mobile menu toggle
+ * - Section animations (Intersection Observer)
+ * - Return to top button
+ * - Dynamic copyright year
+ */
+
+'use strict';
+
 // Wait until the DOM is fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', function () {
-  setupContactForm(); // Set up the contact form submission
-  setupModal(); // Set up the modal functionality
-  setupMenuToggle(); // Set up the mobile menu toggle
-  setupIntersectionObserver(); // Set up the intersection observer for section animations
-  setupReturnButton(); // Set up the return-to-top button
-  updateCopyrightYear(); // Dynamically update the copyright year
+  initApp();
 });
 
-// Function to update copyright year dynamically
+/**
+ * Initialize all application features
+ */
+function initApp() {
+  setupContactForm();
+  setupModal();
+  setupMenuToggle();
+  setupIntersectionObserver();
+  setupReturnButton();
+  updateCopyrightYear();
+}
+
+/**
+ * Update copyright year dynamically
+ */
 function updateCopyrightYear() {
   const yearElement = document.getElementById('copyright-year');
   if (yearElement) {
@@ -16,146 +40,219 @@ function updateCopyrightYear() {
   }
 }
 
-// Function to set up the contact form submission
+/**
+ * Set up the contact form submission via EmailJS
+ */
 function setupContactForm() {
-  document
-    .getElementById('contact-form')
-    .addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent the default form submission behavior
+  const form = document.getElementById('contact-form');
+  if (!form) return;
 
-      // Retrieve form values
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('number').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-      // Use emailjs to send the form data via email
-      emailjs
-        .send('service_5z8tzjm', 'template_6wl8zfk', {
-          from_name: name,
-          from_phone: phone,
-          from_email: email,
-          message: message,
-        })
-        .then(
-          function (response) {
-            // Show a success modal and reset the form
-            showModal(`Thank you, ${name}! Your message has been sent.`);
-            document.getElementById('contact-form').reset();
-          },
-          function (error) {
-            // Show an alert if the email fails to send
-            alert('FAILED...' + error);
-          },
-        );
-    });
-}
+    // Get form data
+    const formData = {
+      from_name: document.getElementById('name').value.trim(),
+      from_phone: document.getElementById('number').value.trim(),
+      from_email: document.getElementById('email').value.trim(),
+      message: document.getElementById('message').value.trim(),
+    };
 
-// Function to set up the modal functionality
-function setupModal() {
-  const modal = document.getElementById('myModal'); // Get the modal element
-  const span = document.getElementsByClassName('close')[0]; // Get the close button
-
-  // Close the modal when the close button is clicked
-  span.onclick = function () {
-    modal.style.display = 'none';
-  };
-
-  // Close the modal when clicking outside of it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
+    // Validate form data
+    if (!formData.from_name || !formData.from_email || !formData.message) {
+      showModal('Please fill in all required fields.', false);
+      return;
     }
-  };
+
+    // Send via EmailJS
+    emailjs.send('service_5z8tzjm', 'template_6wl8zfk', formData).then(
+      function () {
+        showModal(
+          `Thank you, ${formData.from_name}! Your message has been sent successfully.`,
+          true,
+        );
+        form.reset();
+      },
+      function (error) {
+        console.error('EmailJS Error:', error);
+        showModal(
+          'Sorry, there was an error sending your message. Please try again.',
+          false,
+        );
+      },
+    );
+  });
 }
 
-// Function to show the modal with a given message
-function showModal(message) {
-  document.getElementById('modal-text').innerText = message; // Set the modal message
-  document.getElementById('myModal').style.display = 'block'; // Display the modal
-}
+/**
+ * Set up the modal functionality
+ */
+function setupModal() {
+  const modal = document.getElementById('myModal');
+  if (!modal) return;
 
-// Function to set up the mobile menu toggle
-function setupMenuToggle() {
-  const menuToggle = document.getElementById('mobile-menu'); // Get the mobile menu toggle button
-  const navList = document.querySelector('.nav-list'); // Get the navigation list
-  const header = document.querySelector('header'); // Get the header element
+  const closeBtn = modal.querySelector('.close');
 
-  // Toggle the menu and adjust the header height when the menu toggle is clicked
-  menuToggle.addEventListener('click', function () {
-    navList.classList.toggle('active');
-    menuToggle.classList.toggle('open');
-    header.style.height = 'auto';
+  // Close modal on close button click
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
 
-    // Update ARIA attributes for accessibility
-    const isExpanded = navList.classList.contains('active');
-    menuToggle.setAttribute('aria-expanded', isExpanded);
+  // Close modal when clicking outside
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
   });
 
-  // Close menu when clicking on a nav link (mobile UX improvement)
+  // Close modal on Escape key
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
+}
+
+/**
+ * Show modal with a message
+ * @param {string} message - The message to display
+ * @param {boolean} isSuccess - Whether this is a success message
+ */
+function showModal(message, isSuccess = true) {
+  const modal = document.getElementById('myModal');
+  const modalText = document.getElementById('modal-text');
+  const modalIcon = modal?.querySelector('.modal-icon');
+  const modalTitle = modal?.querySelector('h3');
+
+  if (!modal || !modalText) return;
+
+  modalText.textContent = message;
+
+  if (modalIcon) {
+    modalIcon.textContent = isSuccess ? '✓' : '!';
+    modalIcon.style.background = isSuccess
+      ? 'linear-gradient(135deg, #0077b6 0%, #00b4f8 50%, #49576c 100%)'
+      : 'linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%)';
+  }
+
+  if (modalTitle) {
+    modalTitle.textContent = isSuccess ? 'Message Sent!' : 'Oops!';
+  }
+
+  modal.style.display = 'flex';
+
+  // Focus trap for accessibility
+  const closeBtn = modal.querySelector('.close');
+  if (closeBtn) closeBtn.focus();
+}
+
+/**
+ * Close the modal
+ */
+function closeModal() {
+  const modal = document.getElementById('myModal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+
+/**
+ * Set up the mobile menu toggle
+ */
+function setupMenuToggle() {
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.querySelector('.nav-list');
+
+  if (!menuToggle || !navList) return;
+
+  // Toggle menu on button click
+  menuToggle.addEventListener('click', function () {
+    const isOpen = navList.classList.toggle('active');
+    menuToggle.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close menu when clicking a nav link
   const navLinks = navList.querySelectorAll('a');
   navLinks.forEach((link) => {
     link.addEventListener('click', function () {
       if (window.innerWidth <= 768) {
-        navList.classList.remove('active');
-        menuToggle.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+        closeMenu();
       }
     });
   });
 
-  // Handle escape key to close menu (accessibility)
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && navList.classList.contains('active')) {
-      navList.classList.remove('active');
-      menuToggle.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+  // Close menu on Escape key
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && navList.classList.contains('active')) {
+      closeMenu();
       menuToggle.focus();
     }
   });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function (event) {
+    if (
+      !navList.contains(event.target) &&
+      !menuToggle.contains(event.target) &&
+      navList.classList.contains('active')
+    ) {
+      closeMenu();
+    }
+  });
+
+  function closeMenu() {
+    navList.classList.remove('active');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
 }
 
-// Function to set up the intersection observer for section animations
+/**
+ * Set up Intersection Observer for section animations
+ */
 function setupIntersectionObserver() {
-  // Check if IntersectionObserver is supported
   if (!('IntersectionObserver' in window)) {
-    console.log('IntersectionObserver is not supported in your browser.');
+    // Fallback: show all sections immediately
+    document.querySelectorAll('.section').forEach((section) => {
+      section.classList.add('visible');
+    });
     return;
   }
 
-  const sections = document.querySelectorAll('.section'); // Get all sections to be observed
+  const sections = document.querySelectorAll('.section');
+  if (!sections.length) return;
 
-  // Check if there are sections to observe
-  if (!sections.length) {
-    console.log('No sections to observe.');
-    return;
-  }
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15,
+  };
 
-  const options = { threshold: 0.2 }; // Define the observer options
-
-  // Create a new intersection observer
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible'); // Add the visible class to the intersecting section
-        observer.unobserve(entry.target); // Stop observing the section once it is visible
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  }, options);
+  }, observerOptions);
 
-  // Observe each section
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+  sections.forEach((section) => observer.observe(section));
 }
 
-// Function to set up the return-to-top button
+/**
+ * Set up the return-to-top button
+ */
 function setupReturnButton() {
-  const returnButton = document.getElementById('return'); // Get the return button
+  const returnButton = document.getElementById('return');
+  if (!returnButton) return;
 
-  // Scroll to the top of the page when the return button is clicked
   returnButton.addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the default anchor behavior
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to the top
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   });
 }

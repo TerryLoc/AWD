@@ -122,9 +122,7 @@
       </div>
     </noscript>
     <header role="banner">
-      <h1>
-        < All Web Dev />
-      </h1>
+      <h1>< AWD /></h1>
       <nav role="navigation" aria-label="Main navigation">
         <button class="menu-toggle"
                 id="mobile-menu"
@@ -149,115 +147,178 @@
       </nav>
     </header>
     <main role="main" id="main-content">
-      <section id="home" class="section" aria-labelledby="hero-heading">
+      <section id="home" class="section hero" aria-labelledby="hero-heading">
         <div class="intro">
           <h1 id="hero-heading">Welcome to My Portfolio</h1>
-          <p>I'm Terry, a web developer.</p>
-          <a href="https://github.com/TerryLoc"
-             target="_blank"
-             rel="noopener noreferrer"
-             id="github"
-             class="btn-primary"
-             aria-label="Visit Terry's GitHub profile">GitHub</a>
+          <p class="hero-subtitle">I'm Terry, a web developer.</p>
           <p class="intro-tagline">I create eye-catching websites with intuitive user experiences</p>
+          <div class="hero-cta">
+            <a href="https://github.com/TerryLoc"
+               target="_blank"
+               rel="noopener noreferrer"
+               id="github"
+               class="btn-primary"
+               aria-label="Visit Terry's GitHub profile">
+              <span class="btn-icon">&#10095;</span> View GitHub
+            </a>
+            <a href="#contact" class="btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span></span>
         </div>
       </section>
       <section id="about" class="section" aria-labelledby="about-heading">
         <h2 id="about-heading">About Me</h2>
-        <p>
-          <br />
-          Hello! I'm Terry, a web developer with a passion for creating engaging
-          digital experiences.
-          <br />
-          <br />
-          With over 15 years in video production across diverse platforms, my
-          journey from director and editor to web developer is fueled by
-          creativity and technical expertise. Based near Ashford Studios in
-          Wicklow, Ireland, I've honed my skills in crafting compelling
-          narratives and seamless visual experiences.
-          <br />
-          <br />
-          Transitioning into software development, I bring dedication, attention
-          to detail, and a collaborative spirit. Eager to contribute to
-          innovative projects, I aim to offer fresh perspectives and creative
-          insights to development teams.
-          <br />
-          <br />
-          As a Junior Web Developer with a solid foundation in HTML, CSS, and
-          JavaScript, I am currently pursuing a Full Stack Development diploma
-          at Code Institute. I specialize in Frontend Web Development, where I
-          excel in creating eye-catching websites with intuitive user
-          experiences.
-        </p>
+        <div class="about-content">
+          <p>
+            Hello! I'm Terry, a web developer with a passion for creating engaging
+            digital experiences.
+          </p>
+          <p>
+            With over 15 years in video production across diverse platforms, my
+            journey from director and editor to web developer is fueled by
+            creativity and technical expertise. Based near Ashford Studios in
+            Wicklow, Ireland, I've honed my skills in crafting compelling
+            narratives and seamless visual experiences.
+          </p>
+          <p>
+            Transitioning into software development, I bring dedication, attention
+            to detail, and a collaborative spirit. Eager to contribute to
+            innovative projects, I aim to offer fresh perspectives and creative
+            insights to development teams.
+          </p>
+          <p>
+            As a Junior Web Developer with a solid foundation in HTML, CSS, and
+            JavaScript, I am currently pursuing a Full Stack Development diploma
+            at Code Institute. I specialize in Frontend Web Development, where I
+            excel in creating eye-catching websites with intuitive user
+            experiences.
+          </p>
+          <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">UI/UX</span>
+          </div>
+        </div>
       </section>
       <section id="projects" class="middle" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Projects</h2>
-        <article class="project">
-          <h3>Fairyland Cottage</h3>
-          <p>
-            This website was built for a YouTube channel that has over 350,000
-            followers. The channel is for Natural, Simple, Sustainable Living.
-          </p>
-          <a href="https://fairylandcottage.com/"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View Fairyland Cottage project - opens in new tab">
-            <img src="assets/images/fairyland.webp"
-                 alt="Fairyland Cottage website screenshot showing natural living content"
-                 loading="lazy"
-                 width="600"
-                 height="400" />
-          </a>
-        </article>
-        <article class="project">
-          <h3>Beyond The Mood</h3>
-          <p>
-            This Positive Affirmation and Colour Wheel app is designed to uplift your mood and bring positivity into your day.
-          </p>
-          <a href="https://terryloc.github.io/positive-affirmation-colour-wheel/"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View Beyond The Mood project - opens in new tab">
-            <img src="assets/images/beyond-the-mood-min.png"
-                 alt="Beyond The Mood app interface with color wheel and affirmations"
-                 loading="lazy"
-                 width="600"
-                 height="400" />
-          </a>
-        </article>
-        <article class="project">
-          <h3>Classic Star Wars Quiz</h3>
-          <p>
-            This web-based game tests your knowledge of the Star Wars universe through a series of challenging and entertaining questions.
-          </p>
-          <a href="https://theforkawakens.netlify.app/"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View Classic Star Wars Quiz project - opens in new tab">
-            <img src="assets/images/star-wars-quiz-min.png"
-                 alt="Classic Star Wars Quiz game interface with trivia questions"
-                 loading="lazy"
-                 width="600"
-                 height="400" />
-          </a>
-        </article>
+        <div class="projects-grid">
+          <article class="project">
+            <div class="project-image">
+              <a href="https://fairylandcottage.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View Fairyland Cottage project - opens in new tab">
+                <img src="assets/images/fairyland.webp"
+                     alt="Fairyland Cottage website screenshot showing natural living content"
+                     loading="lazy"
+                     width="600"
+                     height="400" />
+              </a>
+            </div>
+            <div class="project-content">
+              <h3>Fairyland Cottage</h3>
+              <p>
+                This website was built for a YouTube channel that has over 350,000
+                followers. The channel is for Natural, Simple, Sustainable Living.
+              </p>
+              <a href="https://fairylandcottage.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-project"
+                 aria-label="View Fairyland Cottage project">
+                View Project
+              </a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-image">
+              <a href="https://terryloc.github.io/positive-affirmation-colour-wheel/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View Beyond The Mood project - opens in new tab">
+                <img src="assets/images/beyond-the-mood-min.png"
+                     alt="Beyond The Mood app interface with color wheel and affirmations"
+                     loading="lazy"
+                     width="600"
+                     height="400" />
+              </a>
+            </div>
+            <div class="project-content">
+              <h3>Beyond The Mood</h3>
+              <p>
+                This Positive Affirmation and Colour Wheel app is designed to uplift your mood and bring positivity into your day.
+              </p>
+              <a href="https://terryloc.github.io/positive-affirmation-colour-wheel/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-project"
+                 aria-label="View Beyond The Mood project">
+                View Project
+              </a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-image">
+              <a href="https://theforkawakens.netlify.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View Classic Star Wars Quiz project - opens in new tab">
+                <img src="assets/images/star-wars-quiz-min.png"
+                     alt="Classic Star Wars Quiz game interface with trivia questions"
+                     loading="lazy"
+                     width="600"
+                     height="400" />
+              </a>
+            </div>
+            <div class="project-content">
+              <h3>Classic Star Wars Quiz</h3>
+              <p>
+                This web-based game tests your knowledge of the Star Wars universe through a series of challenging and entertaining questions.
+              </p>
+              <a href="https://theforkawakens.netlify.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="btn-project"
+                 aria-label="View Classic Star Wars Quiz project">
+                View Project
+              </a>
+            </div>
+          </article>
+        </div>
       </section>
       <section id="contact" class="section" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Contact</h2>
+        <p class="contact-intro">Have a project in mind? Let's work together!</p>
         <form id="contact-form" aria-label="Contact form">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="number">Phone Number:</label>
-          <input type="tel" id="number" name="number" required />
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-          <button type="submit">Send</button>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="number">Phone Number</label>
+            <input type="tel" id="number" name="number" placeholder="Your phone number" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
         </form>
-        <div id="myModal" class="modal">
+        <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <div class="modal-content">
-            <span class="close">&times;</span>
+            <button class="close" aria-label="Close modal">&times;</button>
+            <div class="modal-icon">✓</div>
+            <h3 id="modal-title">Message Sent!</h3>
             <p id="modal-text"></p>
           </div>
         </div>
@@ -267,16 +328,32 @@
       </a>
     </main>
     <footer role="contentinfo">
-      <p>
-        &copy; <span id="copyright-year">2026</span> All Web Dev. All rights reserved.
-      </p>
-      <p>Wicklow, Ireland</p>
-      <p class="footer-links">
-        <a href="https://github.com/TerryLoc"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Visit GitHub profile">GitHub</a>
-      </p>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">< All Web Dev /></span>
+          <p>Creating digital experiences that matter.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/TerryLoc"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit GitHub profile"
+             class="social-link">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit LinkedIn profile"
+             class="social-link">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="copyright-year">2026</span> All Web Dev. All rights reserved.</p>
+        <p class="footer-location">Wicklow, Ireland</p>
+      </div>
     </footer>
     <script src="assets/js/script.js"></script>
   </body>
