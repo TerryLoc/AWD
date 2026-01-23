@@ -206,7 +206,7 @@ nav ul li a:hover {
 
 /* Home section styles */
 #home {
-  background: url('/assets/images/bg-image.jpg') no-repeat center center/cover;
+  background: url('../images/bg-image.jpg') no-repeat center center/cover;
   color: #fff;
   height: 100vh;
   display: flex;
@@ -559,8 +559,7 @@ footer p {
   }
 
   #home {
-    background: url('/assets/images/mobile-bg.webp') no-repeat center
-      center/cover;
+    background: url('../images/mobile-bg.webp') no-repeat center center/cover;
   }
 
   #home .intro {
