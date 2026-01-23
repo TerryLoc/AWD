@@ -1,0 +1,27 @@
+# robots.txt for All Web Dev - Terry Loughran Portfolio
+# https://terryloc.github.io/AWD/
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Allow Google specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Bing
+User-agent: Bingbot
+Allow: /
+
+# Disallow common paths that don't need indexing
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://terryloc.github.io/AWD/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+# Crawl-delay: 10

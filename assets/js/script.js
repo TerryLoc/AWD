@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
   setupMenuToggle(); // Set up the mobile menu toggle
   setupIntersectionObserver(); // Set up the intersection observer for section animations
   setupReturnButton(); // Set up the return-to-top button
-});
+  updateCopyrightYear(); // Dynamically update the copyright year
+});\n\n// Function to update copyright year dynamically\nfunction updateCopyrightYear() {\n  const yearElement = document.getElementById('copyright-year');\n  if (yearElement) {\n    yearElement.textContent = new Date().getFullYear();\n  }\n}
 
 // Function to set up the contact form submission
 function setupContactForm() {
@@ -77,6 +78,32 @@ function setupMenuToggle() {
     navList.classList.toggle('active');
     menuToggle.classList.toggle('open');
     header.style.height = 'auto';
+    
+    // Update ARIA attributes for accessibility
+    const isExpanded = navList.classList.contains('active');
+    menuToggle.setAttribute('aria-expanded', isExpanded);
+  });
+  
+  // Close menu when clicking on a nav link (mobile UX improvement)
+  const navLinks = navList.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        navList.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  
+  // Handle escape key to close menu (accessibility)
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navList.classList.contains('active')) {
+      navList.classList.remove('active');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.focus();
+    }
   });
 }
 
