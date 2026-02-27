@@ -1,258 +1,233 @@
 /**
- * All Web Dev - Terry Loughran Portfolio
- * Main JavaScript File
+ * All Web Dev — Terry Loughran Portfolio
+ * script.js
+ * Place at: assets/js/script.js
  *
  * Handles:
- * - Contact form submission via EmailJS
- * - Modal functionality
+ * - Custom cursor
+ * - Sticky header on scroll
  * - Mobile menu toggle
- * - Section animations (Intersection Observer)
+ * - Scroll reveal (Intersection Observer)
  * - Return to top button
+ * - Contact form via EmailJS
+ * - Modal (success / error feedback)
  * - Dynamic copyright year
  */
 
 'use strict';
 
-// Wait until the DOM is fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', function () {
-  initApp();
+  initCursor();
+  initHeader();
+  initMobileMenu();
+  initScrollReveal();
+  initReturnToTop();
+  initModal();
+  initContactForm();
+  updateCopyrightYear();
 });
 
-/**
- * Initialize all application features
- */
-function initApp() {
-  setupContactForm();
-  setupModal();
-  setupMenuToggle();
-  setupIntersectionObserver();
-  setupReturnButton();
-  updateCopyrightYear();
-}
-
-/**
- * Update copyright year dynamically
- */
+/* ── Copyright year ─────────────────────────────────────────── */
 function updateCopyrightYear() {
-  const yearElement = document.getElementById('copyright-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  const el = document.getElementById('copyright-year');
+  if (el) el.textContent = new Date().getFullYear();
 }
 
-/**
- * Set up the contact form submission via EmailJS
- */
-function setupContactForm() {
+/* ── Custom cursor ───────────────────────────────────────────── */
+function initCursor() {
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  if (!dot || !ring) return;
+
+  let mx = 0,
+    my = 0,
+    rx = 0,
+    ry = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+
+  (function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, button, .project-item').forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      document.body.classList.add('cursor-hover');
+    });
+    el.addEventListener('mouseleave', function () {
+      document.body.classList.remove('cursor-hover');
+    });
+  });
+}
+
+/* ── Sticky header ───────────────────────────────────────────── */
+function initHeader() {
+  const header = document.getElementById('site-header');
+  const returnTop = document.getElementById('return-top');
+  if (!header) return;
+
+  window.addEventListener(
+    'scroll',
+    function () {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+      if (returnTop)
+        returnTop.classList.toggle('visible', window.scrollY > 400);
+    },
+    { passive: true },
+  );
+}
+
+/* ── Return to top ───────────────────────────────────────────── */
+function initReturnToTop() {
+  const btn = document.getElementById('return-top');
+  if (!btn) return;
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ── Mobile menu ─────────────────────────────────────────────── */
+function initMobileMenu() {
+  const toggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  if (!toggle || !mobileNav) return;
+
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function () {
+    const isOpen = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (
+      mobileNav.classList.contains('open') &&
+      !mobileNav.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────── */
+function initScrollReveal() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('visible');
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    observer.observe(el);
+  });
+}
+
+/* ── Modal ───────────────────────────────────────────────────── */
+function initModal() {
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+  if (!modal) return;
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+}
+
+function showModal(message, success) {
+  const modal = document.getElementById('modal');
+  if (!modal) return;
+
+  document.getElementById('modal-icon').textContent = success ? '✓' : '!';
+  document.getElementById('modal-title').textContent = success
+    ? 'Message Sent'
+    : 'Oops';
+  document.getElementById('modal-text').textContent = message;
+
+  modal.classList.add('open');
+  document.getElementById('modal-close').focus();
+}
+
+function closeModal() {
+  const modal = document.getElementById('modal');
+  if (modal) modal.classList.remove('open');
+}
+
+/* ── Contact form ─────────────────────────────────────────────── */
+function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    // Get form data
-    const formData = {
+    const data = {
       from_name: document.getElementById('name').value.trim(),
       from_phone: document.getElementById('number').value.trim(),
       from_email: document.getElementById('email').value.trim(),
       message: document.getElementById('message').value.trim(),
     };
 
-    // Validate form data
-    if (!formData.from_name || !formData.from_email || !formData.message) {
+    if (!data.from_name || !data.from_email || !data.message) {
       showModal('Please fill in all required fields.', false);
       return;
     }
 
-    // Send via EmailJS
-    emailjs.send('service_5z8tzjm', 'template_6wl8zfk', formData).then(
+    emailjs.send('service_5z8tzjm', 'template_6wl8zfk', data).then(
       function () {
         showModal(
-          `Thank you, ${formData.from_name}! Your message has been sent successfully.`,
+          'Thanks, ' + data.from_name + "! I'll be in touch shortly.",
           true,
         );
         form.reset();
       },
-      function (error) {
-        console.error('EmailJS Error:', error);
-        showModal(
-          'Sorry, there was an error sending your message. Please try again.',
-          false,
-        );
+      function (err) {
+        console.error('EmailJS error:', err);
+        showModal('Sorry — something went wrong. Please try again.', false);
       },
     );
-  });
-}
-
-/**
- * Set up the modal functionality
- */
-function setupModal() {
-  const modal = document.getElementById('myModal');
-  if (!modal) return;
-
-  const closeBtn = modal.querySelector('.close');
-
-  // Close modal on close button click
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  // Close modal when clicking outside
-  modal.addEventListener('click', function (event) {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && modal.style.display === 'flex') {
-      closeModal();
-    }
-  });
-}
-
-/**
- * Show modal with a message
- * @param {string} message - The message to display
- * @param {boolean} isSuccess - Whether this is a success message
- */
-function showModal(message, isSuccess = true) {
-  const modal = document.getElementById('myModal');
-  const modalText = document.getElementById('modal-text');
-  const modalIcon = modal?.querySelector('.modal-icon');
-  const modalTitle = modal?.querySelector('h3');
-
-  if (!modal || !modalText) return;
-
-  modalText.textContent = message;
-
-  if (modalIcon) {
-    modalIcon.textContent = isSuccess ? '✓' : '!';
-    modalIcon.style.background = isSuccess
-      ? 'linear-gradient(135deg, #0077b6 0%, #00b4f8 50%, #49576c 100%)'
-      : 'linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%)';
-  }
-
-  if (modalTitle) {
-    modalTitle.textContent = isSuccess ? 'Message Sent!' : 'Oops!';
-  }
-
-  modal.style.display = 'flex';
-
-  // Focus trap for accessibility
-  const closeBtn = modal.querySelector('.close');
-  if (closeBtn) closeBtn.focus();
-}
-
-/**
- * Close the modal
- */
-function closeModal() {
-  const modal = document.getElementById('myModal');
-  if (modal) {
-    modal.style.display = 'none';
-  }
-}
-
-/**
- * Set up the mobile menu toggle
- */
-function setupMenuToggle() {
-  const menuToggle = document.getElementById('mobile-menu');
-  const navList = document.querySelector('.nav-list');
-
-  if (!menuToggle || !navList) return;
-
-  // Toggle menu on button click
-  menuToggle.addEventListener('click', function () {
-    const isOpen = navList.classList.toggle('active');
-    menuToggle.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  // Close menu when clicking a nav link
-  const navLinks = navList.querySelectorAll('a');
-  navLinks.forEach((link) => {
-    link.addEventListener('click', function () {
-      if (window.innerWidth <= 768) {
-        closeMenu();
-      }
-    });
-  });
-
-  // Close menu on Escape key
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && navList.classList.contains('active')) {
-      closeMenu();
-      menuToggle.focus();
-    }
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', function (event) {
-    if (
-      !navList.contains(event.target) &&
-      !menuToggle.contains(event.target) &&
-      navList.classList.contains('active')
-    ) {
-      closeMenu();
-    }
-  });
-
-  function closeMenu() {
-    navList.classList.remove('active');
-    menuToggle.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
-}
-
-/**
- * Set up Intersection Observer for section animations
- */
-function setupIntersectionObserver() {
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: show all sections immediately
-    document.querySelectorAll('.section').forEach((section) => {
-      section.classList.add('visible');
-    });
-    return;
-  }
-
-  const sections = document.querySelectorAll('.section');
-  if (!sections.length) return;
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach((section) => observer.observe(section));
-}
-
-/**
- * Set up the return-to-top button
- */
-function setupReturnButton() {
-  const returnButton = document.getElementById('return');
-  if (!returnButton) return;
-
-  returnButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
   });
 }
