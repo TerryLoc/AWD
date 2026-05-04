@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terry Loughran | Full Stack Developer – Wicklow, Ireland</title>
+    <meta name="description" content="Full Stack Developer and freelancer specialising in HTML, CSS, JavaScript & responsive design. Based in Wicklow, Ireland." />
+    <meta name="author" content="Terry Loughran" />
+    <link rel="canonical" href="https://terryloc.github.io/AWD/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://terryloc.github.io/AWD/" />
+    <meta property="og:title" content="Terry Loughran | Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer and freelancer. Wicklow, Ireland." />
+    <meta property="og:image" content="https://terryloc.github.io/AWD/assets/images/screenshot-main.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Terry Loughran | Full Stack Developer" />
+    <meta name="twitter:description" content="Full Stack Developer and freelancer. Wicklow, Ireland." />
+    <meta name="twitter:image" content="https://terryloc.github.io/AWD/assets/images/screenshot-main.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>(function(){emailjs.init('47pyehPdYhK7B602G');})();</script>
+  </head>
+  <body>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <a href="#home" class="skip-link">Skip to main content</a>
+
+    <!-- NAV -->
+    <header id="site-header">
+      <a href="#home" class="logo">< <span>AWD</span> /></a>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#projects" class="mobile-nav-link">Work</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- HERO -->
+    <main id="home">
+      <div class="hero-lines" aria-hidden="true"></div>
+      <div class="hero-bg-text" aria-hidden="true">TL</div>
+
+      <div class="hero-inner">
+        <p class="hero-label">Full Stack Developer · Wicklow, Ireland</p>
+        <h1 class="hero-h1">
+          Terry<br /><em>Loughran</em>
+        </h1>
+        <p class="hero-desc">
+          Full Stack Developer and freelancer who cut my teeth on Code Institute's Full Stack course — frontend was my first love, and full-stack stole my heart. Now I build things I'm proud of.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-fire">View my work</a>
+          <a href="#contact" class="btn btn-outline">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="scroll-ticker" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-ticker-line"></div>
+      </div>
+    </main>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="about-left">
+        <p class="section-label reveal">About</p>
+        <h2 id="about-heading" class="section-title reveal reveal-delay-1">Who I<br />Am</h2>
+        <div class="about-stat-row reveal reveal-delay-2">
+          <div class="about-stat">
+            <div class="about-stat-number">15+</div>
+            <div class="about-stat-label">Years Creative</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-number">FS</div>
+            <div class="about-stat-label">Diploma</div>
+          </div>
+        </div>
+        <div class="skills-grid reveal reveal-delay-3">
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Django</span>
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">UI/UX</span>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <p class="reveal">With over <strong>15 years in video production</strong> — directing and editing across diverse platforms — I know how to tell a story, frame a shot, and execute with precision. Those same instincts now drive how I build for the web.</p>
+        <p class="reveal reveal-delay-1">Based near Ashford Studios in <strong>Wicklow, Ireland</strong>, I completed my Full Stack Development Diploma at Code Institute and I'm now working as a <strong>freelance developer</strong>, taking projects from concept to launch.</p>
+        <p class="reveal reveal-delay-2">I specialise in the frontend — clean interfaces, sharp detail, intuitive flow — but I'm equally comfortable in the backend, building with Python, Django, and SQL.</p>
+        <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer" class="btn btn-outline reveal reveal-delay-3" style="margin-top:1.5rem; display:inline-flex;">Connect on LinkedIn →</a>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="projects-header">
+        <div>
+          <p class="section-label reveal">Selected Work</p>
+          <h2 id="projects-heading" class="section-title reveal reveal-delay-1">Projects</h2>
+        </div>
+        <p class="reveal reveal-delay-2">A few things I've built</p>
+      </div>
+
+      <div class="projects-list">
+
+        <a href="https://fairylandcottage.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal">
+          <span class="project-num">01</span>
+          <div class="project-info">
+            <h3>Fairyland Cottage</h3>
+            <p>Built for a YouTube channel with 350K+ followers — Natural, Simple, Sustainable Living.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JS</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://terryloc.github.io/positive-affirmation-colour-wheel/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-1">
+          <span class="project-num">02</span>
+          <div class="project-info">
+            <h3>Beyond The Mood</h3>
+            <p>A positive affirmation and colour wheel app — built to uplift your day through colour psychology.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Canvas</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://theforkawakens.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-2">
+          <span class="project-num">03</span>
+          <div class="project-info">
+            <h3>Classic Star Wars Quiz</h3>
+            <p>A web-based trivia game testing knowledge of the Star Wars universe — may the force be with your score.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JS</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://hightidestudios.ie/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-3">
+          <span class="project-num">04</span>
+          <div class="project-info">
+            <h3>High Tide Studios</h3>
+            <p>Full production site for a podcast &amp; video studio — built in React with a sleek, modern editorial feel.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Freelance</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://theeurobuddy.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-4">
+          <span class="project-num">05</span>
+          <div class="project-info">
+            <h3>The Euro Buddy</h3>
+            <p>A data-driven EuroMillions strategy tool — 1,900+ draws analysed, 9 strategies, 382× better odds than random. Launching soon.</p>
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Django</span>
+            <span class="project-tag">Full Stack</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="contact-wrapper">
+        <div class="contact-left">
+          <p class="section-label reveal">Contact</p>
+          <h2 id="contact-heading" class="section-title reveal reveal-delay-1">Let's<br />Build</h2>
+          <p class="reveal reveal-delay-2">Have a project in mind? A site to build, an app to launch, or an idea that needs a developer who gets both design and code — let's talk.</p>
+
+          <div class="contact-links reveal reveal-delay-3">
+            <a href="mailto:" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              Drop me a line
+            </a>
+            <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-label">LinkedIn</span>
+              Terry Loughran
+            </a>
+            <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-link-label">GitHub</span>
+              TerryLoc
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-2" id="contact-form" aria-label="Contact form" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="number">Phone</label>
+              <input type="tel" id="number" name="number" placeholder="Your number" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-left">
+        <a href="#home">< <span>AWD</span> /></a>
+        © <span id="copyright-year"></span> Terry Loughran · Wicklow, Ireland
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://terryloughran.netlify.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      </div>
+    </footer>
+
+    <!-- Return to top -->
+    <a href="#home" id="return-top" aria-label="Return to top">↑</a>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-box">
+        <div class="modal-icon" id="modal-icon">✓</div>
+        <h3 id="modal-title">Message Sent</h3>
+        <p id="modal-text"></p>
+        <button class="modal-close" id="modal-close">Close</button>
+      </div>
+    </div>
+
+    <!-- Main Script -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

@@ -1,294 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terry Loughran | Full Stack Developer – Wicklow, Ireland</title>
-    <meta name="description" content="Full Stack Developer and freelancer specialising in HTML, CSS, JavaScript & responsive design. Based in Wicklow, Ireland." />
-    <meta name="author" content="Terry Loughran" />
-    <link rel="canonical" href="https://terryloc.github.io/AWD/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terry Loughran | Digital Architect – Wicklow, Ireland</title>
+  <meta name="description" content="Digital Architect — Full Stack Developer, Videographer & Editor. Serving solo creators to global brands from Wicklow, Ireland." />
+  <meta name="author" content="Terry Loughran" />
+  <link rel="canonical" href="https://terryloc.github.io/AWD/" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://terryloc.github.io/AWD/" />
-    <meta property="og:title" content="Terry Loughran | Full Stack Developer" />
-    <meta property="og:description" content="Full Stack Developer and freelancer. Wicklow, Ireland." />
-    <meta property="og:image" content="https://terryloc.github.io/AWD/assets/images/screenshot-main.png" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://terryloc.github.io/AWD/" />
+  <meta property="og:title" content="Terry Loughran | Digital Architect" />
+  <meta property="og:description" content="Full Stack Developer, Videographer & Editor. Wicklow, Ireland." />
+  <meta property="og:image" content="https://terryloc.github.io/AWD/assets/images/screenshot-main.png" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Terry Loughran | Full Stack Developer" />
-    <meta name="twitter:description" content="Full Stack Developer and freelancer. Wicklow, Ireland." />
-    <meta name="twitter:image" content="https://terryloc.github.io/AWD/assets/images/screenshot-main.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zen+Loop:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-    <!-- Stylesheet -->
+  <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script>(function(){emailjs.init('47pyehPdYhK7B602G');})();</script>
+</head>
+<body>
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script>(function(){emailjs.init('47pyehPdYhK7B602G');})();</script>
-  </head>
-  <body>
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- Custom cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+  <a href="#home" class="skip-link">Skip to main content</a>
 
-    <a href="#home" class="skip-link">Skip to main content</a>
+  <!-- ─── NAV ──────────────────────────────────────────────────── -->
+  <header id="site-header">
+    <a href="#home" class="logo">< <span>TL</span> /></a>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#showreel">Video</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-    <!-- NAV -->
-    <header id="site-header">
-      <a href="#home" class="logo">< <span>AWD</span> /></a>
-      <nav role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </header>
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#showreel" class="mobile-nav-link">Video</a>
+    <a href="#projects" class="mobile-nav-link">Work</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+  </div>
 
-    <!-- Mobile nav -->
-    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
-      <a href="#about" class="mobile-nav-link">About</a>
-      <a href="#projects" class="mobile-nav-link">Work</a>
-      <a href="#contact" class="mobile-nav-link">Contact</a>
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <main id="home">
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="hero-bg-text" aria-hidden="true">TL</div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Wicklow, Ireland · Available for Projects</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Digital<br /><em>Architect</em>
+      </h1>
+
+      <div class="hero-descriptor">
+        <div class="hero-descriptor-item">
+          <span class="label">Identity</span>
+          <span class="value">Terry Loughran</span>
+        </div>
+        <div class="hero-descriptor-item">
+          <span class="label">Discipline</span>
+          <span class="value">Full Stack · Video · Edit</span>
+        </div>
+        <div class="hero-descriptor-item">
+          <span class="label">Scale</span>
+          <span class="value">Solo Creators → Global Brands</span>
+        </div>
+      </div>
+
+      <p class="hero-desc">
+        One studio. Every screen. I build immersive web experiences and craft cinematic video — from a single landing page to a full content strategy, concept to launch.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-gold">View My Work</a>
+        <a href="#showreel" class="btn btn-outline">Watch Showreel</a>
+        <a href="#contact" class="btn btn-cyan">Let's Create →</a>
+      </div>
     </div>
 
-    <!-- HERO -->
-    <main id="home">
-      <div class="hero-lines" aria-hidden="true"></div>
-      <div class="hero-bg-text" aria-hidden="true">TL</div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-indicator-line"></div>
+      <span class="scroll-indicator-text">Scroll</span>
+    </div>
+  </main>
 
-      <div class="hero-inner">
-        <p class="hero-label">Full Stack Developer · Wicklow, Ireland</p>
-        <h1 class="hero-h1">
-          Terry<br /><em>Loughran</em>
-        </h1>
-        <p class="hero-desc">
-          Full Stack Developer and freelancer who cut my teeth on Code Institute's Full Stack course — frontend was my first love, and full-stack stole my heart. Now I build things I'm proud of.
+  <!-- ─── MARQUEE ────────────────────────────────────────────────── -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item">Full Stack Development <span>✦</span> Video Production <span>✦</span> Long Form Editing <span>✦</span> Short Form Content <span>✦</span> UI/UX Design <span>✦</span> Brand Strategy <span>✦</span> React <span>✦</span> Django <span>✦</span> Python <span>✦</span> Cinematography <span>✦</span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee-item">Full Stack Development <span>✦</span> Video Production <span>✦</span> Long Form Editing <span>✦</span> Short Form Content <span>✦</span> UI/UX Design <span>✦</span> Brand Strategy <span>✦</span> React <span>✦</span> Django <span>✦</span> Python <span>✦</span> Cinematography <span>✦</span></div>
+    </div>
+  </div>
+
+  <!-- ─── SERVICES ──────────────────────────────────────────────── -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="services-header">
+      <div>
+        <p class="section-label reveal">What I Do</p>
+        <h2 id="services-heading" class="section-title reveal reveal-d1">
+          Three<br /><em>Disciplines.</em><br />One Studio.
+        </h2>
+      </div>
+      <p class="services-intro reveal reveal-d2">
+        From solo creators needing a first web presence to established brands producing documentary series — I architect the full digital picture. No handoffs, no middlemen, no gaps.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card gold-accent reveal">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="10" width="40" height="28" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="24" cy="24" r="7" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M21 24l4.5 3L30 20" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Video<br />Production</h3>
+        <p class="service-desc">15+ years directing and shooting across documentary, commercial, and branded content. Alongside on-location capture, I offer full access to a multi-cam greenscreen podcast & vodcast studio.</p>
+        <div class="service-tags">
+          <span class="service-tag">Directing</span>
+          <span class="service-tag">Cinematography</span>
+          <span class="service-tag">Studio Access</span>
+          <span class="service-tag">Documentary</span>
+          <span class="service-tag">Commercial</span>
+        </div>
+      </div>
+
+      <div class="service-card gold-accent reveal reveal-d2">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="16" width="40" height="16" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="12" y1="24" x2="36" y2="24" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="16" cy="24" r="2.5" fill="#c9a84c"/>
+          <circle cx="28" cy="24" r="2.5" fill="#c9a84c"/>
+          <line x1="4" y1="10" x2="4" y2="38" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="2 3"/>
+          <line x1="44" y1="10" x2="44" y2="38" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="2 3"/>
+        </svg>
+        <h3 class="service-title">Video<br />Editing</h3>
+        <p class="service-desc">Long-form documentaries, short-form social reels, YouTube series, podcast clips — precision editing with colour grade and sound design that transforms raw footage into polished content.</p>
+        <div class="service-tags">
+          <span class="service-tag">Long Form</span>
+          <span class="service-tag">Short Form</span>
+          <span class="service-tag">YouTube</span>
+          <span class="service-tag">Social Reels</span>
+          <span class="service-tag">Colour Grade</span>
+        </div>
+      </div>
+
+      <div class="service-card cyan-accent reveal reveal-d3">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="8" width="36" height="28" rx="2" stroke="#00cfc8" stroke-width="1.5"/>
+          <path d="M18 22l-5 4 5 4M30 22l5 4-5 4" stroke="#00cfc8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 32l4-12" stroke="#00cfc8" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="6" y1="40" x2="42" y2="40" stroke="#00cfc8" stroke-width="1.5"/>
+          <line x1="20" y1="40" x2="28" y2="44" stroke="#00cfc8" stroke-width="1.5"/>
+        </svg>
+        <h3 class="service-title">Full Stack<br />Development</h3>
+        <p class="service-desc">Clean, fast, accessible websites and web apps — built from concept to launch. Frontend-first sensibility, backend depth. React, Django, Python, SQL. No templates. No shortcuts.</p>
+        <div class="service-tags">
+          <span class="service-tag">React</span>
+          <span class="service-tag">Django</span>
+          <span class="service-tag">Python</span>
+          <span class="service-tag">HTML/CSS/JS</span>
+          <span class="service-tag">UI/UX</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── VIDEO SHOWREEL ────────────────────────────────────────── -->
+  <section id="showreel" aria-labelledby="showreel-heading">
+    <div class="showreel-header reveal">
+      <div>
+        <p class="section-label">Showreel</p>
+        <h2 id="showreel-heading" class="section-title reveal reveal-d1">
+          On<br /><em>Camera.</em>
+        </h2>
+      </div>
+      <!-- Replace href with your actual showreel link -->
+      <a href="https://vimeo.com/yourshowreel" target="_blank" rel="noopener noreferrer" class="btn btn-outline reveal reveal-d2">Watch Full Reel →</a>
+    </div>
+
+    <!-- ★ SHOWREEL EMBED — replace the placeholder with your iframe or <video> tag ★ -->
+    <!-- Option 1 — YouTube: <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+    <!-- Option 2 — Vimeo:   <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+    <!-- Option 3 — Self-hosted: <video src="your-reel.mp4" controls poster="thumb.jpg"></video> -->
+    <div class="showreel-embed reveal">
+      <div class="showreel-placeholder">
+        <div class="showreel-placeholder-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <p>Paste your showreel embed here</p>
+      </div>
+    </div>
+
+    <!-- VIDEO WORK GRID — add your actual embeds or thumbnails below -->
+    <div class="video-grid">
+
+      <!-- Card 1 — Long Form Example -->
+      <div class="video-item reveal">
+        <div class="video-thumb">
+          <!-- ★ Replace with: <iframe src="https://www.youtube.com/embed/ID" allowfullscreen></iframe> -->
+          <div class="video-thumb-placeholder"></div>
+        </div>
+        <div class="video-meta">
+          <p class="video-cat">Documentary · Long Form</p>
+          <h3 class="video-title">Client Documentary Title</h3>
+          <p class="video-client">Client Name — Year</p>
+        </div>
+      </div>
+
+      <!-- Card 2 — Short Form / Social -->
+      <div class="video-item reveal reveal-d2">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder"></div>
+        </div>
+        <div class="video-meta">
+          <p class="video-cat cyan">Short Form · Social</p>
+          <h3 class="video-title">Brand Reel / Campaign</h3>
+          <p class="video-client">Client Name — Year</p>
+        </div>
+      </div>
+
+      <!-- Card 3 — YouTube Series -->
+      <div class="video-item reveal reveal-d3">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder"></div>
+        </div>
+        <div class="video-meta">
+          <p class="video-cat">YouTube · Series Edit</p>
+          <h3 class="video-title">Fairyland Cottage Series</h3>
+          <p class="video-client">350K+ Subscribers · Ongoing</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SELECTED WORK ─────────────────────────────────────────── -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="projects-header">
+      <div>
+        <p class="section-label cyan reveal">Selected Work</p>
+        <h2 id="projects-heading" class="section-title cyan-em reveal reveal-d1">
+          Built<br /><em>Things.</em>
+        </h2>
+      </div>
+      <p class="projects-count reveal reveal-d2">Recent Projects →</p>
+    </div>
+
+    <!-- CLIENT LOGO GRID — subtle and slick -->
+    <div class="clients-grid reveal" style="margin-bottom: 4rem; opacity: 0.7;">
+      <div class="client-card"><div class="client-logo-placeholder"><span>Client Logo</span></div></div>
+      <div class="client-card"><div class="client-logo-placeholder"><span>Client Logo</span></div></div>
+      <div class="client-card"><div class="client-logo-placeholder"><span>Client Logo</span></div></div>
+      <div class="client-card"><div class="client-logo-placeholder"><span>Client Logo</span></div></div>
+    </div>
+
+    <div class="projects-list">
+
+      <a href="https://fairylandcottage.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal">
+        <span class="project-num">01</span>
+        <div class="project-info">
+          <h3>Fairyland Cottage</h3>
+          <p>Video editing and web build for a YouTube channel with 350K+ followers — Natural, Simple, Sustainable Living.</p>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Web</span>
+          <span class="project-tag">Video</span>
+          <span class="project-tag">Client</span>
+        </div>
+        <span class="project-arrow">→</span>
+      </a>
+
+      <a href="https://hightidestudios.ie/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-d1">
+        <span class="project-num">02</span>
+        <div class="project-info">
+          <h3>High Tide Studios</h3>
+          <p>Full production site for a podcast &amp; video studio — built in React with a sleek, modern editorial feel.</p>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Frontend</span>
+          <span class="project-tag">Client</span>
+        </div>
+        <span class="project-arrow">→</span>
+      </a>
+
+      <a href="https://theeurobuddy.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-d2">
+        <span class="project-num">03</span>
+        <div class="project-info">
+          <h3>The Euro Buddy</h3>
+          <p>A data-driven EuroMillions strategy tool — 1,900+ draws analysed, 9 strategies, 382× better odds than random.</p>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Django</span>
+          <span class="project-tag">Full Stack</span>
+        </div>
+        <span class="project-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="about-left">
+      <p class="section-label reveal">The Person</p>
+      <h2 id="about-heading" class="section-title reveal reveal-d1">
+        Who<br /><em>I Am.</em>
+      </h2>
+      <div class="about-stat-row reveal reveal-d2">
+        <div class="about-stat">
+          <div class="about-stat-num">15+</div>
+          <div class="about-stat-label">Years in Video</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num" style="color:var(--cyan)">FS</div>
+          <div class="about-stat-label">Diploma · Code Institute</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">3</div>
+          <div class="about-stat-label">Disciplines</div>
+        </div>
+      </div>
+      <div class="skills-grid reveal reveal-d3">
+        <span class="skill-pill">HTML5</span>
+        <span class="skill-pill">CSS3</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Django</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">UI/UX</span>
+        <span class="skill-pill">DaVinci Resolve</span>
+        <span class="skill-pill">Premiere Pro</span>
+        <span class="skill-pill">After Effects</span>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <p class="reveal">With over <strong>15 years in video production</strong> — directing, shooting, and editing across documentary, commercial, and branded content — I know how to tell a story, frame a shot, and execute with precision. Those same instincts now drive how I build for the web.</p>
+      <p class="reveal reveal-d1">Based near <strong>Ashford Studios in Wicklow, Ireland</strong>, I completed my Full Stack Development Diploma at Code Institute and I'm now working as a freelance Digital Architect. Additionally, as the in-house Technical Lead at <a href="https://hightidestudios.ie/" target="_blank" rel="noopener noreferrer" style="color: var(--cyan);">High Tide Studios</a>, I offer full access to a premium podcast and vodcast studio, equipped with multi-camera and greenscreen setups.</p>
+      <p class="reveal reveal-d2">I specialise in the frontend — clean interfaces, sharp detail, intuitive flow — but I'm equally comfortable in the backend, building with Python, Django, and SQL. When video and web intersect, that's where I'm most at home.</p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;" class="reveal reveal-d3">
+        <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ───────────────────────────────────────────────── -->
+  <section id="process" aria-labelledby="process-heading">
+    <div class="process-header">
+      <div>
+        <p class="section-label cyan reveal">How I Work</p>
+        <h2 id="process-heading" class="section-title cyan-em reveal reveal-d1">
+          The<br /><em>Process.</em>
+        </h2>
+      </div>
+      <p style="max-width:380px; font-size:0.9rem; color:var(--muted); line-height:1.8; align-self:flex-end;" class="reveal reveal-d2">
+        Same discipline whether we're building a site or cutting a film. Every project follows the same four-stage blueprint.
+      </p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01 — Discovery</div>
+        <h3 class="step-title">Brief &amp; Strategy</h3>
+        <p class="step-desc">We define goals, audience, and deliverables. Whether it's a web brief or a shoot plan — clarity up front saves time everywhere else.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="step-num">02 — Architecture</div>
+        <h3 class="step-title">Design &amp; Pre-Production</h3>
+        <p class="step-desc">Wireframes, storyboards, or both. The structure is designed before a single frame is shot or a line of code is written.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="step-num">03 — Build</div>
+        <h3 class="step-title">Create &amp; Produce</h3>
+        <p class="step-desc">Execution in full — development sprints, on-location production, editing passes. You're kept in the loop throughout.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="step-num">04 — Launch</div>
+        <h3 class="step-title">Deliver &amp; Iterate</h3>
+        <p class="step-desc">Final delivery with handover documentation. For ongoing clients: retainer support, updates, and continued creative partnership.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="contact-wrapper">
+      <div class="contact-left">
+        <p class="section-label reveal">Contact</p>
+        <h2 id="contact-heading" class="section-title reveal reveal-d1">
+          Let's<br /><em>Create.</em>
+        </h2>
+        <p class="reveal reveal-d2" style="margin-top:1.5rem; font-size:0.95rem; color:var(--muted); line-height:1.9; max-width:380px;">
+          A site to build, a video to cut, a brand to launch — or all three. Whether you're a solo creator or a corporate team, let's talk about what you need.
         </p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-fire">View my work</a>
-          <a href="#contact" class="btn btn-outline">Get in touch</a>
+
+        <div class="contact-links reveal reveal-d3">
+          <a href="mailto:terryloughran@email.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">Drop me a line ↗</span>
+          </a>
+          <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">TerryLoc ↗</span>
+          </a>
         </div>
       </div>
 
-      <div class="scroll-ticker" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="scroll-ticker-line"></div>
-      </div>
-    </main>
-
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-heading">
-      <div class="about-left">
-        <p class="section-label reveal">About</p>
-        <h2 id="about-heading" class="section-title reveal reveal-delay-1">Who I<br />Am</h2>
-        <div class="about-stat-row reveal reveal-delay-2">
-          <div class="about-stat">
-            <div class="about-stat-number">15+</div>
-            <div class="about-stat-label">Years Creative</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-number">FS</div>
-            <div class="about-stat-label">Diploma</div>
-          </div>
-        </div>
-        <div class="skills-grid reveal reveal-delay-3">
-          <span class="skill-pill">HTML5</span>
-          <span class="skill-pill">CSS3</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">Django</span>
-          <span class="skill-pill">React</span>
-          <span class="skill-pill">SQL</span>
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">UI/UX</span>
-        </div>
-      </div>
-
-      <div class="about-right">
-        <p class="reveal">With over <strong>15 years in video production</strong> — directing and editing across diverse platforms — I know how to tell a story, frame a shot, and execute with precision. Those same instincts now drive how I build for the web.</p>
-        <p class="reveal reveal-delay-1">Based near Ashford Studios in <strong>Wicklow, Ireland</strong>, I completed my Full Stack Development Diploma at Code Institute and I'm now working as a <strong>freelance developer</strong>, taking projects from concept to launch.</p>
-        <p class="reveal reveal-delay-2">I specialise in the frontend — clean interfaces, sharp detail, intuitive flow — but I'm equally comfortable in the backend, building with Python, Django, and SQL.</p>
-        <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer" class="btn btn-outline reveal reveal-delay-3" style="margin-top:1.5rem; display:inline-flex;">Connect on LinkedIn →</a>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <div class="projects-header">
-        <div>
-          <p class="section-label reveal">Selected Work</p>
-          <h2 id="projects-heading" class="section-title reveal reveal-delay-1">Projects</h2>
-        </div>
-        <p class="reveal reveal-delay-2">A few things I've built</p>
-      </div>
-
-      <div class="projects-list">
-
-        <a href="https://fairylandcottage.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal">
-          <span class="project-num">01</span>
-          <div class="project-info">
-            <h3>Fairyland Cottage</h3>
-            <p>Built for a YouTube channel with 350K+ followers — Natural, Simple, Sustainable Living.</p>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JS</span>
-          </div>
-          <span class="project-arrow">→</span>
-        </a>
-
-        <a href="https://terryloc.github.io/positive-affirmation-colour-wheel/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-1">
-          <span class="project-num">02</span>
-          <div class="project-info">
-            <h3>Beyond The Mood</h3>
-            <p>A positive affirmation and colour wheel app — built to uplift your day through colour psychology.</p>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">Canvas</span>
-          </div>
-          <span class="project-arrow">→</span>
-        </a>
-
-        <a href="https://theforkawakens.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-2">
-          <span class="project-num">03</span>
-          <div class="project-info">
-            <h3>Classic Star Wars Quiz</h3>
-            <p>A web-based trivia game testing knowledge of the Star Wars universe — may the force be with your score.</p>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JS</span>
-          </div>
-          <span class="project-arrow">→</span>
-        </a>
-
-        <a href="https://hightidestudios.ie/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-3">
-          <span class="project-num">04</span>
-          <div class="project-info">
-            <h3>High Tide Studios</h3>
-            <p>Full production site for a podcast &amp; video studio — built in React with a sleek, modern editorial feel.</p>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">Freelance</span>
-          </div>
-          <span class="project-arrow">→</span>
-        </a>
-
-        <a href="https://theeurobuddy.com/" target="_blank" rel="noopener noreferrer" class="project-item reveal reveal-delay-4">
-          <span class="project-num">05</span>
-          <div class="project-info">
-            <h3>The Euro Buddy</h3>
-            <p>A data-driven EuroMillions strategy tool — 1,900+ draws analysed, 9 strategies, 382× better odds than random. Launching soon.</p>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Django</span>
-            <span class="project-tag">Full Stack</span>
-          </div>
-          <span class="project-arrow">→</span>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <div class="contact-wrapper">
-        <div class="contact-left">
-          <p class="section-label reveal">Contact</p>
-          <h2 id="contact-heading" class="section-title reveal reveal-delay-1">Let's<br />Build</h2>
-          <p class="reveal reveal-delay-2">Have a project in mind? A site to build, an app to launch, or an idea that needs a developer who gets both design and code — let's talk.</p>
-
-          <div class="contact-links reveal reveal-delay-3">
-            <a href="mailto:" class="contact-link">
-              <span class="contact-link-label">Email</span>
-              Drop me a line
-            </a>
-            <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <span class="contact-link-label">LinkedIn</span>
-              Terry Loughran
-            </a>
-            <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <span class="contact-link-label">GitHub</span>
-              TerryLoc
-            </a>
-          </div>
-        </div>
-
-        <form class="contact-form reveal reveal-delay-2" id="contact-form" aria-label="Contact form" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-field">
-              <label for="number">Phone</label>
-              <input type="tel" id="number" name="number" placeholder="Your number" />
-            </div>
+      <form class="contact-form reveal reveal-d2" id="contact-form" aria-label="Contact form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
           </div>
           <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <label for="number">Phone</label>
+            <input type="tel" id="number" name="number" placeholder="Your number" />
           </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Message →</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-left">
-        <a href="#home">< <span>AWD</span> /></a>
-        © <span id="copyright-year"></span> Terry Loughran · Wicklow, Ireland
-      </div>
-      <div class="footer-right">
-        <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/terryloughran/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://terryloughran.netlify.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
-      </div>
-    </footer>
-
-    <!-- Return to top -->
-    <a href="#home" id="return-top" aria-label="Return to top">↑</a>
-
-    <!-- Modal -->
-    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-box">
-        <div class="modal-icon" id="modal-icon">✓</div>
-        <h3 id="modal-title">Message Sent</h3>
-        <p id="modal-text"></p>
-        <button class="modal-close" id="modal-close">Close</button>
-      </div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <!-- ★ NEW: Service selector -->
+        <div class="form-field">
+          <label for="service">I need help with</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select a service…</option>
+            <option value="web">Web Development</option>
+            <option value="video-prod">Video Production</option>
+            <option value="video-edit">Video Editing</option>
+            <option value="both">Web + Video (Full Package)</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Tell me about your project</label>
+          <textarea id="message" name="message" placeholder="What are you building? What do you need? Any timeline or budget in mind?" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message →</button>
+      </form>
     </div>
+  </section>
 
-    <!-- Main Script -->
-    <script src="assets/js/script.js"></script>
-  </body>
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-left">
+      <a href="#home">< <span>TL</span> /></a>
+      © <span id="copyright-year"></span> Terry Loughran · Wicklow, Ireland
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/TerryLoc" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="#showreel">Showreel</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <!-- Return to top -->
+  <a href="#home" id="return-top" aria-label="Return to top">↑</a>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-icon" id="modal-icon">✓</div>
+      <h3 id="modal-title">Message Sent</h3>
+      <p id="modal-text">Thanks — I'll be in touch soon.</p>
+      <button class="modal-close" id="modal-close">Close</button>
+    </div>
+  </div>
+
+  <!-- Main Script -->
+  <script src="assets/js/script.js"></script>
+</body>
 </html>
