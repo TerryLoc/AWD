@@ -131,10 +131,13 @@ form.addEventListener('submit', function (e) {
       modal.classList.add('open');
       form.reset();
     })
-    .catch(() => {
+    .catch((err) => {
+      // ← Debugging: open browser DevTools Console to read the error
+      console.error('EmailJS error:', JSON.stringify(err));
       mIcon.textContent = '✕';
       mTitle.textContent = 'Something went wrong';
-      mText.textContent = 'Please try emailing me directly.';
+      // ← Show the actual error in the modal temporarily for debugging
+      mText.textContent = `Error ${err.status}: ${err.text}`;
       modal.classList.add('open');
     });
 });
