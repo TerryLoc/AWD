@@ -117,11 +117,13 @@ form.addEventListener('submit', function (e) {
     message: form.message.value,
   };
 
-  // Send BOTH the auto-reply to the client and the notification to Terry
-  Promise.all([
-    emailjs.send('service_rqxlod4', 'template_hdwppmj', params), // Client auto-reply
-    emailjs.send('service_rqxlod4', 'template_kahq808', params), // Enquiry notification to Terry
-  ])
+  // Send the notification to Terry first
+  emailjs
+    .send('service_rqxlod4', 'template_kahq808', params)
+    .then(() => {
+      // Then send the auto-reply to the client (prevents EmailJS rate-limiting)
+      return emailjs.send('service_rqxlod4', 'template_hdwppmj', params);
+    })
     .then(() => {
       mIcon.textContent = '✓';
       mTitle.textContent = 'Message Sent';
