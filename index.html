@@ -31,8 +31,14 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script>(function(){emailjs.init('wzad26RSFb6_6GvHE');})();</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init({
+        publicKey: "wzad26RSFb6_6GvHE",
+      });
+    })();
+  </script>
 </head>
 <body>
 
