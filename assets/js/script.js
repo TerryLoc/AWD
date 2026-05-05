@@ -116,8 +116,12 @@ form.addEventListener('submit', function (e) {
     service: form.service.value,
     message: form.message.value,
   };
-  emailjs
-    .send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+
+  // Send BOTH the auto-reply to the client and the notification to Terry
+  Promise.all([
+    emailjs.send('service_rqxlod4', 'template_hdwppmj', params), // Client auto-reply
+    emailjs.send('service_rqxlod4', 'template_kahq808', params), // Enquiry notification to Terry
+  ])
     .then(() => {
       mIcon.textContent = '✓';
       mTitle.textContent = 'Message Sent';
