@@ -146,3 +146,32 @@ mClose.addEventListener('click', () => modal.classList.remove('open'));
 modal.addEventListener('click', (e) => {
   if (e.target === modal) modal.classList.remove('open');
 });
+
+// ── Cookie Banner ────────────────────────────────────────────
+const cookieBanner = document.getElementById('cookie-banner');
+const acceptCookies = document.getElementById('accept-cookies');
+const declineCookies = document.getElementById('decline-cookies');
+
+if (cookieBanner) {
+  // Check if consent is already given
+  const consent = localStorage.getItem('cookie_consent');
+
+  if (!consent) {
+    // Small delay before showing to ensure smooth entry
+    setTimeout(() => {
+      cookieBanner.classList.add('show');
+    }, 1500);
+  }
+
+  acceptCookies.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'accepted');
+    cookieBanner.classList.remove('show');
+    // Initialize analytics or other tracking if applicable
+  });
+
+  declineCookies.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', 'declined');
+    cookieBanner.classList.remove('show');
+    // Ensure no tracking cookies are set
+  });
+}
